@@ -1,0 +1,16 @@
+.imageAbout img{
+    margin: 30px;
+    width: 100px;
+    height: 100px;
+    display: inline-flex;
+    align-content: space-between;
+    flex-wrap: wrap;
+}
+
+.About{
+    color: rgb(250, 7, 149);
+    text-align: center;
+    background-image: url("/images/Monuments.png");
+background-size: contain;
+background-repeat: repeat;
+}

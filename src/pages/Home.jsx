@@ -1,9 +1,15 @@
 import React from "react";
+import MapInfos from "../components/MapInfos";
 
-const Home = (props) => {
+
+const Home = props => {
+  // Implement react map box here.
   return (
     <div>
-      <h1>Home Page ∆</h1>
+      <h1>
+        <MapInfos/>
+      </h1>
+      <p>On home /</p>
     </div>
   );
 };

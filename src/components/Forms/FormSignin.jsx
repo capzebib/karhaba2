@@ -45,9 +45,9 @@ class FormSignin extends Component {
     return (
       <form onChange={this.handleChange} onSubmit={this.handleSubmit}>
         <label htmlFor="email">Email</label>
-        <input type="email" id="email" name="email" />
+        <input type="email" id="email" name="email" value="toto@gmail.com"/>
         <label htmlFor="password">Password</label>
-        <input type="password" id="password" name="password" />
+        <input type="password" id="password" name="password" value="1234"/>
         <button>Submit</button>
       </form>
     );

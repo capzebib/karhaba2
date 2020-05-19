@@ -3,11 +3,21 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@stripe/react-stripe-js": "^1.1.2",
+    "@stripe/stripe-js": "^1.5.0",
     "axios": "^0.19.2",
+    "bootstrap": "^3.4.1",
+    "bulma": "^0.8.2",
+    "mapbox": "^1.0.0-beta10",
+    "mapbox-gl": "^1.10.0",
+    "mongoose": "^5.9.14",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-router-dom": "^5.1.2",
-    "react-scripts": "3.4.1"
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "3.4.1",
+    "stripe": "^8.52.0",
+    "warn": "^1.0.1",
+    "yarn": "^1.22.4"
   },
   "scripts": {
     "start": "react-scripts start",
