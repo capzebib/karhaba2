@@ -97,6 +97,13 @@ export default {
       .catch(errorHandler);
   },
 
+  deleteCourse(id) {
+    return service
+      .delete("/api/courses/" + id)
+      .then(res => res.data)
+      .catch(errorHandler);
+  },
+
   getDrivers() {
     return service
       .get("/api/drivers")

@@ -5,27 +5,38 @@ class MyCourses extends Component {
   state = {
     courses: [],
     userID: "",
-    drivers:[]
+    drivers: []
   };
 
   componentDidMount() {
     // utilisation de la fonction apiHnalder,
     // quand tu as la reponse, tu set le state avec toutes les courses
     apiHandler
-
       .getAllCourses()
-    
-
-        .then(dbRes => {
-          this.setState({ courses: dbRes });
-          console.log(dbRes);
-        })
-        .catch(dbErr => {
-          console.log(dbErr);
-        });
+      .then(dbRes => {
+        this.setState({ courses: dbRes });
+        // console.log(dbRes);
+      })
+      .catch(dbErr => {
+        console.log(dbErr);
+      });
   }
   handleChange = event => {
     this.setState({ [event.target.name]: event.target.value });
+  };
+
+  handleDelete = id => {
+    apiHandler
+      .deleteCourse(id)
+      .then(data => {
+        const updatedCourses = this.state.courses.filter(
+          course => course._id !== id
+        );
+        this.setState({ courses: updatedCourses });
+      })
+      .catch(error => {
+        console.log(error);
+      });
   };
 
   render() {
@@ -45,6 +56,9 @@ class MyCourses extends Component {
             <li>Date: {course.date}</li>
             <li>Price: {course.price}</li>
             <li>{course.isFinished}</li>
+            <button onClick={event => this.handleDelete(course._id)}>
+              Cancel this course
+            </button>
             <p>------------------------</p>
           </ul>
         )) /* Mapper autour des courses et les afficher ici*/}

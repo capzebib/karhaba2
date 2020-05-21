@@ -1,15 +1,15 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import apiHandler from "../../api/apiHandler";
+import "../../styles/signinup.css";
 
 class FormContactUs extends Component {
-
   state = {
     name: "",
     phone: "",
-    email: "",   
+    email: "",
     subject: "",
-    message: "",
+    message: ""
   };
 
   handleChange = event => {
@@ -43,12 +43,27 @@ class FormContactUs extends Component {
     return (
       <section>
         <p>Contact us</p>
-        <form onChange={this.handleChange} onSubmit={this.handleSubmit}>
-          <label htmlFor="name">Name</label>
-          <input type="text" id="name" name="name" value="Toto" />
-
-          <label htmlFor="phone">Phone</label>
+        <form
+          className="form"
+          onChange={this.handleChange}
+          onSubmit={this.handleSubmit}
+        >
+          <label className="label" htmlFor="name">
+            Name
+          </label>
           <input
+            className="input"
+            type="text"
+            id="name"
+            name="name"
+            value="Toto"
+          />
+
+          <label className="label" htmlFor="phone">
+            Phone
+          </label>
+          <input
+            className="input"
             type="tel"
             id="phone"
             name="phone"
@@ -57,24 +72,41 @@ class FormContactUs extends Component {
             // value="0600000000"
           />
 
-          <label htmlFor="email">Email</label>
-          <input type="email" id="email" name="email" value="toto@gmail.com" />
-
-          <label htmlFor="subject">Subject</label>
+          <label className="label" htmlFor="email">
+            Email
+          </label>
           <input
+            className="input"
+            type="email"
+            id="email"
+            name="email"
+            value="toto@gmail.com"
+          />
+
+          <label className="label" htmlFor="subject">
+            Subject
+          </label>
+          <input
+            className="input"
             type="text"
             id="subject"
             name="subject"
             value="Ceci est un test"
           />
 
-          <label htmlFor="message">Message</label>
+          <label className="label" htmlFor="message">
+            Message
+          </label>
           <textarea
+            className="input"
             id="message"
             name="message"
             value="Alors, concluant ou pas?"
           ></textarea>
-          <button>Submit</button>
+          <div className="container">
+            <button className="btn btn-4">Submit</button>
+          </div>
+          
         </form>
       </section>
     );

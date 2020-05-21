@@ -1,0 +1,104 @@
+.title {
+    display: flex;
+    justify-content: center;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.form {
+    height: auto;
+    width: 50vw;
+margin-left: auto;
+margin-right: auto;
+margin-top: 2em;
+display: block;
+}
+
+.form input[type=file] {
+    color: #8a04f8
+}
+.form input[type=text]{
+    color: #c300ff
+}
+.form input[type=email] {
+    color: #c300ff
+}
+.form input[type=date] {
+    color: #c300ff
+}
+.form input[type=password] {
+    color: #c300ff
+}
+.form select{
+    color: #c300ff;
+    text-align: center
+}
+
+.form-label {
+    margin-bottom: 3em;;
+}
+
+.label {margin: auto;
+    font-size: 1em;
+display: flex;
+justify-content: center;
+color: #f8046a
+}
+
+.input{
+display: flex;
+justify-content: center;
+border-radius: 20px;
+    border: 5px solid black;
+    text-align: center;
+    height: 5vh;
+    width: 50vw;
+    overflow: hidden;
+}
+
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+    width: 50vw;
+    margin: 0;
+    height: 20vh;
+}
+
+.btn {
+    font-size: 1em;
+    font-weight: bold;
+    flex: 1 1 auto;
+    margin: 100px;
+    padding: 5px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: rgba(40, 40, 49, 0.596);
+    text-shadow: 0px 0px 20px rgba(0,0,0,1);
+    box-shadow: 0 0 20px black;
+    border-radius: 10px;
+}
+/* Demo Stuff End -> */
+/* <- Magic Stuff Start */
+.btn:hover {
+    background-position: center right ;
+    /* change the direction of the change here */
+}
+.btn-4 {
+    background-image: linear-gradient(to right, #a1c4fd 0%, #c2e9fb 51%, #a1c4fd 100%);
+}
+/* Magic Stuff End -> */
+
+.form-section-bottom{
+    display: flex;
+    justify-content: center;
+}
+
+.link{
+    color: blue;
+}

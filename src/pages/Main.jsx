@@ -4,14 +4,14 @@ import "../styles/main.css";
 
 const Main = props => {
   return (
-    <div>
+    <div className="main">
       <nav role="navigation">
         <div id="menuToggle">
           <input type="checkbox" />
           <span></span>
           <span></span>
           <span></span>
-          
+
           <ul id="menu">
             <li>
               <Link className="link" to="/user-edit">

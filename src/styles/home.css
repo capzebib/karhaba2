@@ -1,0 +1,20 @@
+.home{
+    margin-top: 30%;
+   display: flex;
+   /* align-items: center; */
+       justify-content: center;
+       align-content: center;
+border: 1px solid red;
+font-size: 2em;
+}
+
+.textaccueil{
+    margin: 50px;
+    border: 1px solid blue;
+
+    display: flex;
+       /* flex-direction: column; */
+/* align-items: center; */
+    /* align-content: center; */
+    justify-content: center;
+}

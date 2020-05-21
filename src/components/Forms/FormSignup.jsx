@@ -2,20 +2,22 @@ import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
 import UserContext from "../Auth/UserContext";
 import apiHandler from "../../api/apiHandler";
+import "../../styles/signinup.css";
+
 // import {withUser} from "../Auth/withUser.jsx";
 
 class FormSignup extends Component {
   static contextType = UserContext;
 
   state = {
-    photo: "",
-    email: "toto@gmail.com",
-    username: "toto",
-    gender: "Man",
-    firstname: "toto",
-    lastname: "foobar",
-    birth: "",
-    password: "1234"
+    photo: null,
+    email: null,
+    username: null,
+    gender: null,
+    firstname: null,
+    lastname: null,
+    birth: null,
+    password: null
   };
 
   handleChange = event => {
@@ -47,47 +49,106 @@ class FormSignup extends Component {
 
   render() {
     return (
-      <section>
-        <form
-          autoComplete="off"
-          className="formSigninup"
-          onChange={this.handleChange}
-          onSubmit={this.handleSubmit}
-        >
-          <label htmlFor="photo">Photo</label>
-          <input type="file" id="photo" name="photo" />
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            defaultValue={this.state.email}
-          />
-          <label htmlFor="username">Username</label>
-          <input
-            type="text"
-            id="username"
-            name="username"
-            value="le fameux Toto"
-          />
-          <label htmlFor="gender">Gender</label>
-          <select id="category" defaultValue="-1" name="category">
-            <option value="-1" disabled>
-              Select your gender
-            </option>
-            <option value="man">Man</option>
-            <option value="woman">Woman</option>
-          </select>
-          <label htmlFor="firstname">First name</label>
-          <input type="text" id="firstname" name="firstname" value="toto" />
-          <label htmlFor="lastname">Last name</label>
-          <input type="text" id="lastname" name="lastname" value="Bentoto" />
-          <label htmlFor="birth">Birth</label>
-          <input type="date" id="birth" name="birth" />
-          <label htmlFor="password">Password</label>
-          <input type="password" id="password" name="password" value="1234" />
-          <button>Submit</button>
-        </form>
+      <div>
+        <p className="title">Sign up</p>
+        <div className="form">
+          <form
+            className="form"
+            autoComplete="off"
+            className="formSigninup"
+            onChange={this.handleChange}
+            onSubmit={this.handleSubmit}
+          >
+            <div className="form-label">
+              <label className="label" htmlFor="photo">
+                Photo
+              </label>
+              <input className="input" type="file" id="photo" name="photo" />
+            </div>
+            <div className="form-label">
+              <label className="label" htmlFor="email">
+                Email
+              </label>
+              <input
+                className="input"
+                type="email"
+                id="email"
+                name="email"
+              />
+            </div>
+            <div className="form-label">
+              <label className="label" htmlFor="username">
+                Username
+              </label>
+              <input
+                className="input"
+                type="text"
+                id="username"
+                name="username"
+              />
+            </div>
+            <div className="form-label">
+              <label className="label" htmlFor="gender">
+                Gender
+              </label>
+              <div className="input">
+                <select id="category" defaultValue="-1" name="category">
+                  <option value="-1" disabled>
+                    Select your gender
+                  </option>
+                  <option value="man">Man</option>
+                  <option value="woman">Woman</option>
+                </select>
+              </div>
+            </div>
+            <div className="form-label">
+              <label className="label" htmlFor="firstname">
+                First name
+              </label>
+              <input
+                className="input"
+                type="text"
+                id="firstname"
+                name="firstname"
+              />
+            </div>
+            <div className="form-label">
+              <label className="label" htmlFor="lastname">
+                Last name
+              </label>
+              <input
+                className="input"
+                type="text"
+                id="lastname"
+                name="lastname"
+              />
+            </div>
+
+            <div className="form-label">
+              <label className="label" htmlFor="birth">
+                Birth
+              </label>
+              <input className="input" type="date" id="birth" name="birth" />
+            </div>
+
+            <div className="form-label">
+              <label className="label" htmlFor="password">
+                Password
+              </label>
+              <input
+                className="input"
+                type="password"
+                id="password"
+                name="password"
+              />
+            </div>
+
+            <div className="container">
+              <button className="btn btn-4">Submit</button>
+            </div>
+          </form>
+        </div>
+        <div className="form"></div>
 
         <div className="form-section-bottom">
           <p>Already have an account? </p>
@@ -95,7 +156,7 @@ class FormSignup extends Component {
             Log in
           </Link>
         </div>
-      </section>
+      </div>
     );
   }
 }

@@ -2,8 +2,9 @@ import React from "react";
 import Autocomplete from "./Autocomplete";
 import axios from "axios";
 import apiHandler from "../api/apiHandler.js";
-import { Link, withRouter } from "react-router-dom";
-
+import { Redirect, Link, withRouter } from "react-router-dom";
+import MapPlan from "../components/MapPlan";
+import "../styles/map-info.css";
 class MapInfos extends React.Component {
   state = {
     locationA: null,
@@ -13,7 +14,8 @@ class MapInfos extends React.Component {
     price: 0,
     duration: 0,
     date: null,
-    drivers: []
+    drivers: [],
+    steps: null,
   };
 
   //Get the drivers
@@ -84,11 +86,20 @@ class MapInfos extends React.Component {
           directions: response.data
         });
         console.log(response.data);
+        console.log(response.data.routes[0].legs[0].steps);
       })
       .catch(error => {
         console.log(error);
       });
   };
+
+  displaySteps() {
+    const steps = this.state.response.data.routes[0].legs[0].steps;
+    for (let i = 0; i < steps.length; i++) {
+      return steps[i];
+      console.log(steps);
+    }
+  }
 
   componentDidUpdate(prevProps, prevState) {
     if (
@@ -145,7 +156,7 @@ class MapInfos extends React.Component {
       price = this.calculatePrice(this.state.directions.routes[0].distance);
     }
     let duration = 0;
-    if (price !== 0) {
+    if (this.state.directions) {
       duration = this.displayDuration(this.state.directions.routes[0].duration);
     }
     let startAddress = "";
@@ -156,47 +167,116 @@ class MapInfos extends React.Component {
     if (this.state.directions) {
       finishAddress = this.state.locationB.place_name;
     }
+    const {redirection}=this.state;
+    if (redirection){
+      return <Redirect to="/myCourses"/>
+    }
+    // let steps = "No steps";
+    // if (this.state.directions) {
+    //   steps = this.state.directions.routes[0].legs[0].steps[0];
+    // }
     return (
-      <div>
-        <h1>{price.toFixed(2)} €</h1>
-        Start
-        <Autocomplete onSelect={this.handleLocationA} />
-        Finish
-        <Autocomplete onSelect={this.handleLocationB} />
-        {this.state.directions && <h1> Duration:{duration}</h1>}
-        {this.state.directions && <h1> Start address: {startAddress}</h1>}
-        {this.state.directions && <h1> Finish address: {finishAddress}</h1>}
-        <div>
-          <label htmlFor="date">Date: </label>
-          <input
-            type="date"
-            id="date"
-            name="date"
-            onChange={this.handleChange}
-          />
+      <div className="all-map">
+        <h1 className="price">{price.toFixed(2)} €</h1>
+        <p className="label">Start</p>
+        <div className="address">
+          <Autocomplete id="start" onSelect={this.handleLocationA} />
         </div>
+
+        <p className="label">Finish</p>
+        <div className="address">
+          <Autocomplete onSelect={this.handleLocationB} />
+        </div>
+        <div className="result">
+          {this.state.directions && (
+            <div>
+              <div className="data-title">Duration: </div>
+              <div className="data">{duration}</div>
+            </div>
+          )}
+          {this.state.directions && (
+            <div>
+              <div className="data-title">Start address: </div>
+              <div className="data">{startAddress}</div>
+            </div>
+          )}
+          {this.state.directions && (
+            <div>
+              <div className="data-title">Finish address: </div>
+              <div className="data">{finishAddress}</div>
+            </div>
+          )}
+        </div>
+
         <div>
+          <label className="label" htmlFor="date">
+            Date:{" "}
+          </label>
+          <div className="address">
+            <input
+              className="input"
+              type="date"
+              id="date"
+              name="date"
+              onChange={this.handleChange}
+            />
+          </div>
+        </div>
+        <div className="driver">
+          <p className="text">Drivers availables</p>
           {this.state.drivers.map((driver, index) => (
-            <p key={index}>
-              {driver.name}
-              <Link to={`/driver/${driver.id}`}>
-                {driver.lastname} {driver.firstname} See more
-              </Link>
-            </p>
+            <ul key={index} className="head">
+              <li>
+                <Link to={`/driver/${driver.id}`}>{driver.firstname}</Link>
+              </li>
+              <li>
+                <Link to={`/driver/${driver.id}`}>
+                  <img src={driver.photo} />
+                </Link>
+              </li>
+              <li>
+                <Link to={`/driver/${driver.id}`}>{driver.lastname}</Link>
+              </li>
+              <li>
+                <Link to={`/driver/${driver.id}`}>
+                  <img src={driver.photo} />
+                </Link>
+              </li>
+              <li>
+                <Link to={`/driver/${driver.id}`}>
+                  <p className="link">See more</p>
+                </Link>
+              </li>
+            </ul>
           ))}
-          Faire un select dont les options sont un map sur this.state.drivers
         </div>
-        <select onChange={this.handleChange} name="driverID" defaultValue="-1">
-          <option value="-1" disabled>
-            Choose your driver
-          </option>
-          {this.state.drivers.map(driver => (
-            <option value={driver._id}>
-              {driver.firstname} {driver.lastname}
+
+        <div className="choose input">
+          <select
+            onChange={this.handleChange}
+            name="driverID"
+            defaultValue="-1"
+          >
+            <option value="-1" disabled>
+              Choose driver
             </option>
-          ))}
-        </select>
-        <button onClick={this.createReservation}>Validate</button>
+            {this.state.drivers.map(driver => (
+              <option value={driver._id}>
+                {driver.lastname}
+                {driver.firstname}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <div className="validate">
+          <button onClick={this.createReservation} className="btn btn-4">
+            Validate 
+          </button>
+        </div>
+        <div>
+          <MapPlan />
+        </div>
       </div>
     );
   }

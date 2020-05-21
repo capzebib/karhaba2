@@ -1,0 +1,19 @@
+.driver{
+    display: flex;
+flex-direction: column;
+font-size: 1.3em;
+border: solid 1px red;
+margin: auto;
+    color: #f8046a;
+
+}
+
+.table{
+    border: 3px solid blue;
+}
+.row{
+    border: 3px solid blue;
+    height: 70px;
+    width: auto;
+    text-align: center;
+}

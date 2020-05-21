@@ -10,7 +10,5 @@
 .About{
     color: rgb(250, 7, 149);
     text-align: center;
-    background-image: url("/images/Monuments.png");
-background-size: contain;
-background-repeat: repeat;
+    
 }

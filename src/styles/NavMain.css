@@ -1,10 +1,32 @@
 .NavMain {
-  background-color: transparent;
-  color: rgb(57, 57, 57);
+  color: rgb(0, 0, 0);
   display: flex;
   align-items: center;
-  padding: 20px;
+  /* justify-content : flex-end; */
+  /* flex-grow: inherit; */
+  padding: 10px;
+}
+
+.NavMainLogin {
+  color: rgb(0, 0, 0);
+  display: flex;
+  padding: 10px;
+  margin-left: auto;
+
+}
+
+.div-main {
+  display: flex;
+  align-items: flex-end;
   height: 70px;
+  width: 70px;
+/* display: flex;
+justify-content: center; */
+}
+
+/* Login */
+/* .to-login li{
+  font-size: 1em;
 }
 
 .NavMain .nav-list {
@@ -14,4 +36,29 @@
 
 .NavMain .nav-list li:not(:last-child) {
   margin-right: 20px;
+} */
+
+/* .nav-list {
+  border: 1px red solid;
+display: flex;
+flex-direction: column;
+align-items: flex-end;
 }
+.list {
+    border: 1px blue solid;
+}
+
+.to-login img{
+    border: 2px blue solid;
+} */
+
+/* logout */
+/* .logout {
+  height: 5vh;
+  width: 5vw;
+} */
+
+/* .logout img {
+  width: 1vw;
+  height: 1vh;
+} */
