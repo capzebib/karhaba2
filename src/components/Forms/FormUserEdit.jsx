@@ -54,7 +54,13 @@ class FormUserEdit extends React.Component {
           <label className="label" htmlFor="username">
             Username
           </label>
-          <input className="input" type="text" id="username" name="username" />
+          <input
+            className="input"
+            type="text"
+            id="username"
+            name="username"
+            defaultValue={this.context.user.username}
+          />
           <div>
             <label className="label" htmlFor="gender">
               Gender
