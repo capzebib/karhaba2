@@ -42,7 +42,7 @@ class FormContactUs extends Component {
   render() {
     return (
       <section>
-        <p>Contact us</p>
+        <p className="contact">Contact us</p>
         <form
           className="form"
           onChange={this.handleChange}

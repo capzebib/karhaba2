@@ -102,3 +102,10 @@ border-radius: 20px;
 link:hover{
     color: blue;
 }
+
+.contact{
+    text-align: center;
+    display: block;
+    justify-content: baseline;
+    font-size: 2em;
+}

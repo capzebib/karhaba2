@@ -1,16 +1,16 @@
 import React, { Component } from "react";
 
 import UserContext from "../Auth/UserContext";
-import { Link,withRouter } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import apiHandler from "../../api/apiHandler";
-import "../../styles/signinup.css"
+import "../../styles/signinup.css";
 
 class FormSignin extends Component {
   static contextType = UserContext;
 
   state = {
-    email: "toto@gmail.com",
-    password: "1234"
+    email: "",
+    password: ""
   };
 
   handleChange = event => {
@@ -55,13 +55,7 @@ class FormSignin extends Component {
             <label className="label" htmlFor="email">
               Email
             </label>
-            <input
-              className="input"
-              type="email"
-              id="email"
-              name="email"
-              value="toto@gmail.com"
-            />
+            <input className="input" type="email" id="email" name="email" />
           </div>
           <div className="form-label">
             <label className="label" htmlFor="password">
@@ -72,7 +66,6 @@ class FormSignin extends Component {
               type="password"
               id="password"
               name="password"
-              value="1234"
             />
           </div>
           <div className="container">
