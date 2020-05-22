@@ -109,5 +109,12 @@ export default {
       .get("/api/drivers")
       .then(res => res.data)
       .catch(errorHandler);
+  },
+
+  getOneDriver(){
+    return service
+    .get("/api/drivers/:id")
+    .then(res => res.data)
+    .catch(errorHandler);
   }
 };

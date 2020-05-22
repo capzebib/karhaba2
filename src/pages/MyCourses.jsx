@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import apiHandler from "../api/apiHandler";
-
+import"../styles/mycourses.css"
 class MyCourses extends Component {
   state = {
     courses: [],
@@ -41,7 +41,7 @@ class MyCourses extends Component {
 
   render() {
     return (
-      <div>
+      <div className="my-course">
         {this.state.courses.map(course => (
           // <option value={course._id}>
           //   {driver.firstname} {driver.lastname}
@@ -54,11 +54,16 @@ class MyCourses extends Component {
             <li>Start address: {course.startAddress}</li>
             <li>Finish address: {course.finishAddress}</li>
             <li>Date: {course.date}</li>
-            <li>Price: {course.price}</li>
+            <li>Price: {course.price.toFixed(2)}</li>
             <li>{course.isFinished}</li>
-            <button onClick={event => this.handleDelete(course._id)}>
-              Cancel this course
-            </button>
+            <div className="container">
+              <button
+                className="btn btn-4"
+                onClick={event => this.handleDelete(course._id)}
+              >
+                Cancel this course
+              </button>
+            </div>
             <p>------------------------</p>
           </ul>
         )) /* Mapper autour des courses et les afficher ici*/}

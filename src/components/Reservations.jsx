@@ -25,6 +25,7 @@ class Reservations extends Component {
 
   render() {
     return (
+      
       <div>
         {this.state.courses.map(course => (
           // <option value={course._id}>
@@ -35,7 +36,7 @@ class Reservations extends Component {
             <li>{course.startAddress}</li>
             <li>{course.finishAddress}</li>
             <li>{course.date}</li>
-            <li>{course.price}</li>
+            <li>{course.price.toFixed(2)}</li>
             <li>{course.isFinished}</li>
             <li>{course.userID}</li>
             <li>{course.driverID}</li>

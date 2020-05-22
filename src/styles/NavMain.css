@@ -15,13 +15,20 @@
 
 }
 
-.div-main {
+.div-main img{
   display: flex;
   align-items: flex-end;
   height: 70px;
   width: 70px;
+  border-radius: 50px;  
 /* display: flex;
 justify-content: center; */
+}
+.div-main-create img{
+  display: flex;
+  align-items: flex-end;
+  height: 70px;
+  width: 70px;
 }
 
 /* Login */

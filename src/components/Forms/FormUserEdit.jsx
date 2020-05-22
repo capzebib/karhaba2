@@ -3,7 +3,7 @@ import apiHandler from "../../api/apiHandler";
 import UserContext from "../Auth/UserContext";
 import "../../styles/signinup.css";
 
-class UserEditForm extends React.Component {
+class FormUserEdit extends React.Component {
   static contextType = UserContext;
 
   state = {};
@@ -37,8 +37,9 @@ class UserEditForm extends React.Component {
           onSubmit={this.handleForm}
         >
           <label className="label" htmlFor="photo">
-            Photo
+            <img src={this.context.user.photo} alt="user" />
           </label>
+          />
           <input className="input" type="file" id="photo" name="photo" />
           <label className="label" htmlFor="email">
             Email
@@ -53,13 +54,7 @@ class UserEditForm extends React.Component {
           <label className="label" htmlFor="username">
             Username
           </label>
-          <input
-            className="input"
-            type="text"
-            id="username"
-            name="username"
-            defaultValue={this.context.user.username}
-          />
+          <input className="input" type="text" id="username" name="username" />
           <div>
             <label className="label" htmlFor="gender">
               Gender
@@ -80,7 +75,6 @@ class UserEditForm extends React.Component {
               </select>
             </div>
           </div>
-
           <label className="label" htmlFor="firstname">
             First name
           </label>
@@ -123,4 +117,4 @@ class UserEditForm extends React.Component {
   }
 }
 
-export default UserEditForm;
+export default FormUserEdit;

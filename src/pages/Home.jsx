@@ -2,7 +2,7 @@ import React from "react";
 import MapInfos from "../components/MapInfos";
 import "../styles/home.css";
 import { withUser } from "../components/Auth/withUser";
-import { Link, withRouter } from "react-router-dom";
+import { Link, } from "react-router-dom";
 
 const Home = props => {
   console.log(props);
@@ -13,12 +13,13 @@ const Home = props => {
 
       {!props.context.user && (
         <div>
-          <div className="textaccueil">Welcome on KARHABA</div>
+          <div className="textaccueil">Welcome on</div>
+          <div className="textaccueil-karhaba">KARHABA</div>
+
           <div className="textaccueil">
             <Link className="link" to="/signin">
               Please Sign in!
             </Link>
-            
           </div>
         </div>
       )}

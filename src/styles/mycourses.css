@@ -1,0 +1,50 @@
+.my-course{
+    /* display: flex;
+    justify-content: center; */
+}
+.my-course li{
+    display: flex;
+    justify-content: center;
+    font-size: 1em;
+    margin: -5px;
+    font-style: oblique;
+    font-weight: bold;
+}
+
+.my-course .container {
+    /* display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap; */
+    width: 50vw;
+    margin: auto;
+    height: 20vh;
+}
+
+.my-course .btn {
+    font-size: 1em;
+    font-weight: bold;
+    flex: 1 1 auto;
+    /* margin: 5px; */
+    padding: 2px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: rgba(40, 40, 49, 0.596);
+    text-shadow: 0px 0px 20px rgba(0, 0, 0, 1);
+    box-shadow: 0 0 20px black;
+    border-radius: 10px;
+}
+
+/* Demo Stuff End -> */
+/* <- Magic Stuff Start */
+.my-course .btn:hover {
+    background-position: center right;
+    /* change the direction of the change here */
+}
+
+.my-course .btn-4 {
+    background-image: linear-gradient(to right, #a1c4fd 0%, #c2e9fb 51%, #a1c4fd 100%);
+}

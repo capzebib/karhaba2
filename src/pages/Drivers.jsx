@@ -44,7 +44,7 @@ class Drivers extends React.Component {
               <tr>
                 <td className="row"><Link to={`/driver/${driver.id}`}>{driver.firstname}</Link></td>
                 <td className="row"><Link to={`/driver/${driver.id}`}>{driver.lastname}</Link></td>
-                <td className="row"><Link to={`/driver/${driver.id}`}><img src={driver.photo} /></Link></td>
+                <td className="row"><Link to={`/driver/${driver.id}`}><img src={driver.photo} alt="driver"/></Link></td>
               </tr>
             </tbody>
           ))}

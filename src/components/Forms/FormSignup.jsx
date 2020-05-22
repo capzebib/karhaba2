@@ -36,6 +36,7 @@ class FormSignup extends Component {
   handleSubmit = event => {
     event.preventDefault();
     // const {authContext}=this.props;
+    console.log(this.state);
     apiHandler
       .signup(this.state)
       .then(data => {
@@ -55,7 +56,7 @@ class FormSignup extends Component {
           <form
             className="form"
             autoComplete="off"
-            className="formSigninup"
+            className="form-signinup"
             onChange={this.handleChange}
             onSubmit={this.handleSubmit}
           >
@@ -69,12 +70,7 @@ class FormSignup extends Component {
               <label className="label" htmlFor="email">
                 Email
               </label>
-              <input
-                className="input"
-                type="email"
-                id="email"
-                name="email"
-              />
+              <input className="input" type="email" id="email" name="email" />
             </div>
             <div className="form-label">
               <label className="label" htmlFor="username">
@@ -92,7 +88,7 @@ class FormSignup extends Component {
                 Gender
               </label>
               <div className="input">
-                <select id="category" defaultValue="-1" name="category">
+                <select id="category" defaultValue="-1" name="gender">
                   <option value="-1" disabled>
                     Select your gender
                   </option>

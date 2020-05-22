@@ -1,12 +1,17 @@
 import React from "react";
-import Reservations from "../components/Reservations"
+import { Link, withRouter } from "react-router-dom";
+import FormUserEdit from "../components/Forms/FormUserEdit";
+import { withUser } from "../components/Auth/withUser";
+
+
 const Profile = (props) => {
   return (
     <div>
-      <h1>Protected profile</h1>
-      <Reservations />
+    Je suis la
+    <FormUserEdit />
     </div>
+    
   );
 };
 
-export default Profile;
+export default withUser(Profile);

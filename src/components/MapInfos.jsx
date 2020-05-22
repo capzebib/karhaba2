@@ -85,7 +85,7 @@ class MapInfos extends React.Component {
         this.setState({
           directions: response.data
         });
-        console.log(response.data);
+        // console.log(response.data);
         console.log(response.data.routes[0].legs[0].steps);
       })
       .catch(error => {
@@ -138,7 +138,7 @@ class MapInfos extends React.Component {
       .postCourse(course)
       .then(data => {
         console.log(data);
-        this.props.history.push("/");
+        this.props.history.push("/MyCourses");
       })
       .catch(error => {
         console.log(error);
@@ -224,31 +224,26 @@ class MapInfos extends React.Component {
         </div>
         <div className="driver">
           <p className="text">Drivers availables</p>
-          {this.state.drivers.map((driver, index) => (
-            <ul key={index} className="head">
-              <li>
-                <Link to={`/driver/${driver.id}`}>{driver.firstname}</Link>
-              </li>
-              <li>
-                <Link to={`/driver/${driver.id}`}>
-                  <img src={driver.photo} />
-                </Link>
-              </li>
-              <li>
-                <Link to={`/driver/${driver.id}`}>{driver.lastname}</Link>
-              </li>
-              <li>
-                <Link to={`/driver/${driver.id}`}>
-                  <img src={driver.photo} />
-                </Link>
-              </li>
-              <li>
-                <Link to={`/driver/${driver.id}`}>
-                  <p className="link">See more</p>
-                </Link>
-              </li>
-            </ul>
-          ))}
+          <table className="table">
+            
+            {this.state.drivers.map((driver, index) => (
+              <tbody key={index} className="table">
+                <tr>
+                  <td className="row">
+                    <Link to={`/driver/${driver.id}`}>{driver.firstname}</Link>
+                  </td>
+                  <td className="row">
+                    <Link to={`/driver/${driver.id}`}>{driver.lastname}</Link>
+                  </td>
+                  <td className="row">
+                    <Link to={`/driver/${driver.id}`}>
+                      <img src={driver.photo} alt="driver" />
+                    </Link>
+                  </td>
+                </tr>
+              </tbody>
+            ))}
+          </table>
         </div>
 
         <div className="choose input">
@@ -271,7 +266,7 @@ class MapInfos extends React.Component {
 
         <div className="validate">
           <button onClick={this.createReservation} className="btn btn-4">
-            Validate 
+            Validate
           </button>
         </div>
         <div>

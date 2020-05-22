@@ -1,8 +1,23 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import apiHandler from "../api/apiHandler"
 import "../styles/main.css";
+import { withUser } from "../components/Auth/withUser";
 
 const Main = props => {
+  const { context } = props;
+
+  function handleLogout() {
+    apiHandler
+      .logout()
+      .then(() => {
+        context.removeUser();
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
+
   return (
     <div className="main">
       <nav role="navigation">
@@ -50,7 +65,7 @@ const Main = props => {
             </li>
             <li>
               <Link className="link" to="/Logout">
-                Log out
+                <p onClick={handleLogout}>Log out</p>
               </Link>
             </li>
           </ul>
@@ -60,5 +75,5 @@ const Main = props => {
   );
 };
 
-export default Main;
+export default withUser(Main);
 
