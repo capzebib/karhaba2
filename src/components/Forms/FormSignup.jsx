@@ -37,8 +37,20 @@ class FormSignup extends Component {
     event.preventDefault();
     // const {authContext}=this.props;
     console.log(this.state);
+    
+    const fd = new FormData();
+
+    fd.append("photo", this.state.photo);
+    fd.append("email", this.state.email);
+    fd.append("username", this.state.username);
+    fd.append("gender", this.state.gender);
+    fd.append("firstname", this.state.firstname);
+    fd.append("lastname", this.state.lastname);
+    fd.append("birth", this.state.birth);
+    fd.append("password", this.state.password);
+
     apiHandler
-      .signup(this.state)
+      .signup(fd)
       .then(data => {
         this.context.setUser(data);
         this.props.history.push("/");

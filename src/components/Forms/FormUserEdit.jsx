@@ -9,14 +9,21 @@ class FormUserEdit extends React.Component {
   state = {};
 
   handleChange = event => {
-    this.setState({ [event.target.name]: event.target.value });
+    const value =
+      event.target.type === "file" ? event.target.files[0] : event.target.value;
+    this.setState({ [event.target.name]: value });
   };
 
   handleForm = event => {
     event.preventDefault();
+    const fd = new FormData();
+
+    for (const key in this.state) {
+      fd.append(`${key}`, this.state[key]);
+    }
 
     apiHandler
-      .updateUser(this.state)
+      .updateUser(fd)
       .then(data => {
         this.context.setUser(data);
         // this.props.history.push("/users");
@@ -39,7 +46,7 @@ class FormUserEdit extends React.Component {
           <label className="label" htmlFor="photo">
             <img src={this.context.user.photo} alt="user" />
           </label>
-          />
+
           <input className="input" type="file" id="photo" name="photo" />
           <label className="label" htmlFor="email">
             Email
@@ -105,15 +112,7 @@ class FormUserEdit extends React.Component {
             Birth
           </label>
           <input className="input" type="date" id="birth" name="birth" />
-          <label className="label" htmlFor="password">
-            Password
-          </label>
-          <input
-            className="input"
-            type="password"
-            id="password"
-            name="password"
-          />
+
           <div className="container">
             <button className="btn btn-4">Submit</button>
           </div>
